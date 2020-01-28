@@ -13,7 +13,7 @@ $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 $HADOOP_HOME/bin/hadoop fs -mkdir -p /tmp
 $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/hive/warehouse
 $HADOOP_HOME/bin/hadoop fs -chmod -R 777 /tmp
-$HADOOP_HOME/bin/hadoop fs -chmod -R 777 /user/hive/warehouse
+$HADOOP_HOME/bin/hadoop fs -chmod -R 777 /user
 $HIVE_HOME/bin/schematool -dbType derby -initSchema
 $HIVE_HOME/bin/hiveserver2 &
 sleep 10

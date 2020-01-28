@@ -22,8 +22,8 @@ RUN tar -xzf apache-hive-$HIVE_VERSION-bin.tar.gz && \
   ln -s /opt/apache-hive-$HIVE_VERSION-bin /opt/hive
 
 
-ADD *-site.xml $HADOOP_HOME/etc/hadoop/
-ADD ssh_config /root/.ssh/config
+ADD conf/hadoop/*-site.xml $HADOOP_HOME/etc/hadoop/
+ADD conf/ssh/config /root/.ssh/config
 
 # create ssh keys
 RUN \
@@ -39,9 +39,9 @@ RUN echo "PATH=$PATH:$HADOOP_HOME/bin" >> ~/.bashrc
 RUN echo "PATH=$PATH:$HIVE_HOME/bin" >> ~/.bashrc
 
 ADD start-all.sh start-all.sh
-ADD create-tables.hql create-tables.hql
+ADD resources/hive/create-tables.hql create-tables.hql
 
-EXPOSE 8090 9000 8032 8030 10000 10001 50070 50075 50030 50060
+EXPOSE 8090 9000 8032 8030 10000 10001
 
 CMD bash start-all.sh
 
