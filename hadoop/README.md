@@ -60,7 +60,7 @@ If you do not need the container anymore
     $ docker container stop hadoop-2.6.0-container
 
 If you want to start the container again, the command `docker start
-hadoop-2.6.0-containe` is not working somehow. So we have to remove this
+hadoop-2.6.0-container` is not working somehow. So we have to remove this
 conatiner competely.
 
     $ docker container rm hadoop-2.6.0-container
