@@ -1,3 +1,9 @@
+## Motiviation
+
+The goal of this docker image is to provide a pseudo distributed hadoop
+including a running hive which has two tables already injteced.
+This hadoop/hive installation should be accessible from outside.
+
 ## Installation
 
 Install <https://www.docker.com/> onto your system.
