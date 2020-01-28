@@ -19,6 +19,6 @@ The default hadoop version is 2.6.0, so lets give the image a name to reflect th
 
     $ docker run --hostname hadoopbox --name 'hadoop-2.6.0-container' 'hadoop-2.6.0'
 
-We defined the hostname `hadoopbox`. Why? Because we have hardcoded hadoop config files - (conf/hadoop/core-site.xml) - which refers to this name.
+We defined the hostname `hadoopbox`. Why? Because we have hardcoded hadoop config files - [core-site.xml](conf/hadoop/core-site.xml) - which refers to this name.
 
 
