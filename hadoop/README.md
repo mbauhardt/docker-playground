@@ -43,10 +43,13 @@ The following ports are exposed
 
 ## Access the container
 
-You can access the container and run the PI job via
+You can access the container and run some jobs
 
     $ docker exec -it hadoop-2.6.0-container bash
-    $ bin/hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 3 10
+    $ /opt/hadoop/bin/hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 3 10
+    $ /opt/hive/bin/beeline -u jdbc:hive2://localhost:10000/default
+    $ beeline> select * from pokes;
+    $ beeline> select * from invites;
 
 
 ## Stop the container
@@ -57,6 +60,13 @@ If you do not need the container anymore
 
 If you want to start the container again, the command `docker start hadoop-2.6.0-containe` is not working somehow. So we have to remove this conatiner competely.
 
-    $  docker container rm hadoop-2.6.0-container
+    $ docker container rm hadoop-2.6.0-container
+
+
+## Can I start another hadoop/hive version
+
+Si Senor.
+
+    $ docker build --build-arg HADOOP_VERSION=2.9.2 --build-arg HIVE_VERSION=2.3.5 -t 'hadoop-2.9.2' .
 
 
