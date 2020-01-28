@@ -28,7 +28,7 @@ address of the hadoop container is execute
 
     $ docker inspect hadoop-2.6.0-container | grep IPAddress
 
-And update the hosts file e.g.
+And update the hosts file on your client machine e.g.
 
     $ echo '172.17.0.2 hadoopbox' >> /etc/hosts
 
