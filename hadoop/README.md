@@ -23,8 +23,9 @@ reflect this version
 We defined the hostname `hadoopbox`. Why? Because we have hardcoded
 hadoop config files - [core-site.xml](conf/hadoop/core-site.xml) - which
 refers to this name.  I recommend to put this name including the IP of
-the started container into your `/etc/hosts`. To figure out how the IP
-address of the hadoop container is execute
+the started container into your `/etc/hosts` if you want to access
+hadoop from your client machine. To figure out how the IP address of the
+hadoop container is execute
 
     $ docker inspect hadoop-2.6.0-container | grep IPAddress
 
@@ -58,7 +59,9 @@ If you do not need the container anymore
 
     $ docker container stop hadoop-2.6.0-container
 
-If you want to start the container again, the command `docker start hadoop-2.6.0-containe` is not working somehow. So we have to remove this conatiner competely.
+If you want to start the container again, the command `docker start
+hadoop-2.6.0-containe` is not working somehow. So we have to remove this
+conatiner competely.
 
     $ docker container rm hadoop-2.6.0-container
 
