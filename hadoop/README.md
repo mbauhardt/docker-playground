@@ -1,4 +1,4 @@
-# Installation
+## Installation
 
 Install <https://www.docker.com/> onto your system.
 Clone this project
@@ -7,7 +7,7 @@ Clone this project
     $ cd docker-playground/hadoop
 
 
-# Build the image
+## Build the image
 
 Before you can start hadoop/hive you have to build the image.  The
 default hadoop version is 2.6.0, so lets give the image a name to
@@ -16,7 +16,7 @@ reflect this version
     $ docker build -t 'hadoop-2.6.0' .
 
 
-# Start a container based on that image
+## Start a container based on that image
 
     $ docker run --hostname hadoopbox --name 'hadoop-2.6.0-container' 'hadoop-2.6.0'
 
@@ -27,4 +27,36 @@ the started container into your `/etc/hosts`. To figure out how the IP
 address of the hadoop container is execute
 
     $ docker inspect hadoop-2.6.0-container | grep IPAddress
+
+And update the hosts file e.g.
+
+    $ echo '172.17.0.2 hadoopbox' >> /etc/hosts
+
+
+The following ports are exposed
+
+* NameNode on port `9000`
+* ResourceManager on port `8032`
+* ResourceManagerSchedulerAddress on port `8030`
+* ResourceManagerWebAddress on port `8090`
+
+
+## Access the container
+
+You can access the container and run the PI job via
+
+    $ docker exec -it hadoop-2.6.0-container bash
+    $ bin/hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar pi 3 10
+
+
+## Stop the container
+
+If you do not need the container anymore
+
+    $ docker container stop hadoop-2.6.0-container
+
+If you want to start the container again, the command `docker start hadoop-2.6.0-containe` is not working somehow. So we have to remove this conatiner competely.
+
+    $  docker container rm hadoop-2.6.0-container
+
 
