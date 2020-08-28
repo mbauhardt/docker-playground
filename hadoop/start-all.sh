@@ -17,7 +17,7 @@ $HADOOP_HOME/bin/hadoop fs -chmod -R 777 /user
 $HIVE_HOME/bin/schematool -dbType derby -initSchema
 $HIVE_HOME/bin/hiveserver2 &
 sleep 10
-$HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000/default -i create-tables.hql
+$HIVE_HOME/bin/beeline -u jdbc:hive2://localhost:10000/default -n einstein -p password -i create-tables.hql
 
 
 echo -e "#####################\n"

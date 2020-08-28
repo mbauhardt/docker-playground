@@ -1,7 +1,7 @@
 FROM openjdk:8
 
-ARG HADOOP_VERSION=2.6.0
-ARG HIVE_VERSION=1.1.0
+ARG HADOOP_VERSION=2.7.2
+ARG HIVE_VERSION=2.3.7
 
 ENV HADOOP_HOME /opt/hadoop
 ENV HIVE_HOME /opt/hive
@@ -23,6 +23,7 @@ RUN tar -xzf apache-hive-$HIVE_VERSION-bin.tar.gz && \
 
 
 ADD conf/hadoop/*-site.xml $HADOOP_HOME/etc/hadoop/
+ADD conf/hive/*-site.xml $HIVE_HOME/conf
 ADD conf/ssh/config /root/.ssh/config
 
 # create ssh keys
